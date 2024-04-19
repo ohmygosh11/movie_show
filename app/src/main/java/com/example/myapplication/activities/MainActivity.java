@@ -3,12 +3,14 @@ package com.example.myapplication.activities;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.adapters.TVShowsAdapter;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private MostPopularTVShowsViewModel viewModel;
     private List<TVShow> tvShows = new ArrayList<>();
     private TVShowsAdapter tvShowsAdapter;
+    private int currentPage = 15;
+    private int totalPages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +47,49 @@ public class MainActivity extends AppCompatActivity {
         tvShowsAdapter = new TVShowsAdapter(tvShows);
         activityMainBinding.tvShowsRecyclerView.setAdapter(tvShowsAdapter);
         viewModel = new ViewModelProvider(this).get(MostPopularTVShowsViewModel.class);
+        activityMainBinding.tvShowsRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (!activityMainBinding.tvShowsRecyclerView.canScrollVertically(1)) {
+                    currentPage++;
+                    if (currentPage <= totalPages) {
+                        getMostPopularTVShows();
+                    }
+                }
+            }
+        });
         getMostPopularTVShows();
     }
 
     private void getMostPopularTVShows() {
-        activityMainBinding.setIsLoading(true);
-        viewModel.getMostPopularTVShows(0).observe(this, mostPopularTVShowsResponse -> {
-            activityMainBinding.setIsLoading(false);
+        toggleLoading();
+        viewModel.getMostPopularTVShows(currentPage).observe(this, mostPopularTVShowsResponse -> {
+            toggleLoading();
             if (mostPopularTVShowsResponse != null) {
+                totalPages = mostPopularTVShowsResponse.getTotalPages();
                 if (mostPopularTVShowsResponse.getTvShows() != null) {
+                    int insertPos = tvShows.size();
                     tvShows.addAll(mostPopularTVShowsResponse.getTvShows());
-                    tvShowsAdapter.notifyDataSetChanged();
+                    tvShowsAdapter.notifyItemRangeInserted(insertPos, tvShows.size()-insertPos);
                 }
             }
         });
+    }
+
+    private void toggleLoading() {
+        if (currentPage == 15) {
+            if (activityMainBinding.getIsLoading() != null && activityMainBinding.getIsLoading()) {
+                activityMainBinding.setIsLoading(false);
+            } else {
+                activityMainBinding.setIsLoading(true);
+            }
+        } else {
+            if (activityMainBinding.getIsLoadingMore() != null && activityMainBinding.getIsLoadingMore()) {
+                activityMainBinding.setIsLoadingMore(false);
+            } else {
+                activityMainBinding.setIsLoadingMore(true);
+            }
+        }
     }
 }
