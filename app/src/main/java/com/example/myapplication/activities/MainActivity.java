@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements TVShowsListener {
                 if (mostPopularTVShowsResponse.getTvShows() != null) {
                     int insertPos = tvShows.size();
                     tvShows.addAll(mostPopularTVShowsResponse.getTvShows());
-                    tvShowsAdapter.notifyItemRangeInserted(insertPos, tvShows.size()-insertPos);
+                    tvShowsAdapter.notifyItemRangeInserted(insertPos, tvShows.size() - insertPos);
                 }
             }
         });

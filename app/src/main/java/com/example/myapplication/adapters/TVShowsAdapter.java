@@ -15,7 +15,7 @@ import com.example.myapplication.models.TVShow;
 
 import java.util.List;
 
-public class TVShowsAdapter extends RecyclerView.Adapter<TVShowsAdapter.TVShowViewHolder>{
+public class TVShowsAdapter extends RecyclerView.Adapter<TVShowsAdapter.TVShowViewHolder> {
     private List<TVShow> tvShows;
     private TVShowsListener tvShowsListener;
 
