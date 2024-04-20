@@ -1,11 +1,14 @@
 package com.example.myapplication.activities;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -22,17 +25,23 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.myapplication.R;
+import com.example.myapplication.adapters.EpisodesAdapter;
 import com.example.myapplication.adapters.ImageSliderAdapter;
 import com.example.myapplication.databinding.ActivityTvshowDetailsBinding;
+import com.example.myapplication.databinding.LayoutEpisodesBottomSheetBinding;
 import com.example.myapplication.models.TVShowDetails;
 import com.example.myapplication.viewmodels.TVShowDetailsViewModel;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.Locale;
 
 public class TVShowDetailsActivity extends AppCompatActivity {
     private ActivityTvshowDetailsBinding activityTvshowDetailsBinding;
+    private LayoutEpisodesBottomSheetBinding layoutEpisodesBottomSheetBinding;
     private TVShowDetailsViewModel tvShowDetailsViewModel;
     private TVShowDetails tvShowDetails;
+    private BottomSheetDialog bottomSheetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,6 +190,40 @@ public class TVShowDetailsActivity extends AppCompatActivity {
         activityTvshowDetailsBinding.buttonWebsite.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tvShowDetails.getUrl()));
             startActivity(intent);
+        });
+
+        activityTvshowDetailsBinding.buttonEpisodes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (bottomSheetDialog == null) {
+                    bottomSheetDialog = new BottomSheetDialog(TVShowDetailsActivity.this);
+                    layoutEpisodesBottomSheetBinding = DataBindingUtil.inflate(
+                            LayoutInflater.from(TVShowDetailsActivity.this),
+                            R.layout.layout_episodes_bottom_sheet,
+                            findViewById(R.id.episodesContainer),
+                            false
+                    );
+                    bottomSheetDialog.setContentView(layoutEpisodesBottomSheetBinding.getRoot());
+                    layoutEpisodesBottomSheetBinding.episodesRecyclerView.setAdapter(
+                            new EpisodesAdapter(tvShowDetails.getEpisodes())
+                    );
+                    layoutEpisodesBottomSheetBinding.textHeader.setText(
+                            String.format("Episode | %s", getIntent().getStringExtra("name"))
+                    );
+                    layoutEpisodesBottomSheetBinding.imageClose.setOnClickListener(v1 -> bottomSheetDialog.dismiss());
+                }
+
+
+                FrameLayout frameLayout = bottomSheetDialog.findViewById(
+                        com.google.android.material.R.id.design_bottom_sheet
+                );
+                if (frameLayout != null) {
+                    BottomSheetBehavior<View> bottomSheetBehavior = BottomSheetBehavior.from(frameLayout);
+                    bottomSheetBehavior.setPeekHeight((int)(Resources.getSystem().getDisplayMetrics().heightPixels*0.85));
+                }
+
+                bottomSheetDialog.show();
+            }
         });
     }
 }
