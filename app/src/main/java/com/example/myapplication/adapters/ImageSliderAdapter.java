@@ -12,7 +12,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.databinding.ItemContainerSliderImageBinding;
 import com.example.myapplication.databinding.ItemContainerTvShowBinding;
 
-public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.ImageSliderViewHolder>{
+public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.ImageSliderViewHolder> {
     private String[] sliderImages;
 
     public ImageSliderAdapter(String[] sliderImages) {

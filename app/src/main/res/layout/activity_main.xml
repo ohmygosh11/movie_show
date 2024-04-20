@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="isLoading"
             type="Boolean" />
@@ -12,7 +13,7 @@
             name="isLoadingMore"
             type="Boolean" />
 
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,20 +53,20 @@
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
+                android:contentDescription="@string/app_name"
                 android:padding="@dimen/_2sdp"
                 android:src="@drawable/ic_watchlist"
-                app:tint="@color/colorTextIcons"
-                android:contentDescription="@string/app_name" />
+                app:tint="@color/colorTextIcons" />
 
             <ImageView
                 android:id="@+id/imageSeach"
                 android:layout_width="@dimen/_24sdp"
                 android:layout_height="@dimen/_24sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
+                android:contentDescription="@string/app_name"
                 android:padding="@dimen/_2sdp"
                 android:src="@drawable/ic_search"
-                app:tint="@color/colorTextIcons"
-                android:contentDescription="@string/app_name" />
+                app:tint="@color/colorTextIcons" />
 
         </LinearLayout>
 
@@ -75,8 +76,8 @@
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:orientation="vertical"
-            android:paddingTop="@dimen/_4sdp"
             android:paddingStart="@dimen/_4sdp"
+            android:paddingTop="@dimen/_4sdp"
             android:paddingEnd="@dimen/_4sdp"
             android:paddingBottom="@dimen/_44sdp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -86,20 +87,20 @@
         <ProgressBar
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE, default=gone}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutHeader"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:visibility="@{isLoading ? View.VISIBLE : View.GONE, default=gone}" />
+            app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
 
         <ProgressBar
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="@dimen/_12sdp"
-            android:visibility="@{isLoadingMore ? View.VISIBLE :View.GONE, default=gone}" />
+            android:visibility="@{isLoadingMore ? View.VISIBLE :View.GONE, default=gone}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
