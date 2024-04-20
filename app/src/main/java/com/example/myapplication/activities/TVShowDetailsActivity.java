@@ -1,5 +1,7 @@
 package com.example.myapplication.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -24,6 +26,8 @@ import com.example.myapplication.adapters.ImageSliderAdapter;
 import com.example.myapplication.databinding.ActivityTvshowDetailsBinding;
 import com.example.myapplication.models.TVShowDetails;
 import com.example.myapplication.viewmodels.TVShowDetailsViewModel;
+
+import java.util.Locale;
 
 public class TVShowDetailsActivity extends AppCompatActivity {
     private ActivityTvshowDetailsBinding activityTvshowDetailsBinding;
@@ -153,6 +157,32 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                 activityTvshowDetailsBinding.textDescription.setMaxLines(4);
                 activityTvshowDetailsBinding.textDescription.setEllipsize(TextUtils.TruncateAt.END);
                 activityTvshowDetailsBinding.textReadMore.setText(R.string.read_more);
+            }
+        });
+
+        activityTvshowDetailsBinding.setRating(
+                String.format(Locale.getDefault(),"%.2f", Double.parseDouble(tvShowDetails.getRating()))
+        );
+
+        if (tvShowDetails.getGenres() != null) {
+            activityTvshowDetailsBinding.setGenre(tvShowDetails.getGenres()[0]);
+        } else {
+            activityTvshowDetailsBinding.setGenre("N/A");
+        }
+
+        activityTvshowDetailsBinding.setRuntime(tvShowDetails.getRuntime() + " Min");
+
+        activityTvshowDetailsBinding.viewDivider1.setVisibility(View.VISIBLE);
+        activityTvshowDetailsBinding.viewDivider2.setVisibility(View.VISIBLE);
+        activityTvshowDetailsBinding.layoutMisc.setVisibility(View.VISIBLE);
+        activityTvshowDetailsBinding.buttonEpisodes.setVisibility(View.VISIBLE);
+        activityTvshowDetailsBinding.buttonWebsite.setVisibility(View.VISIBLE);
+
+        activityTvshowDetailsBinding.buttonWebsite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tvShowDetails.getUrl()));
+                startActivity(intent);
             }
         });
     }

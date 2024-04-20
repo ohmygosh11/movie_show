@@ -33,6 +33,18 @@
             name="description"
             type="String" />
 
+        <variable
+            name="rating"
+            type="String" />
+
+        <variable
+            name="genre"
+            type="String" />
+
+        <variable
+            name="runtime"
+            type="String" />
+
         <import type="android.view.View" />
     </data>
 
@@ -206,6 +218,137 @@
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="@id/textDescription"
                     app:layout_constraintTop_toBottomOf="@id/textDescription" />
+
+                <View
+                    android:id="@+id/viewDivider1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/colorTextSecondary"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/textReadMore"
+                    app:layout_constraintStart_toStartOf="@id/textDescription"
+                    app:layout_constraintEnd_toEndOf="@id/textDescription"  />
+
+                <LinearLayout
+                    android:id="@+id/layoutMisc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/viewDivider1"
+                    app:layout_constraintStart_toStartOf="@id/textDescription"
+                    app:layout_constraintEnd_toEndOf="@id/textDescription">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_star"
+                        app:tint="@color/colorTextOther" />
+
+                    <TextView
+                        android:id="@+id/textRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="@color/colorTextIcons"
+                        android:text="@{rating}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:textSize="@dimen/_13ssp"
+                        android:text="@string/u2022"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:id="@+id/textGenre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="@color/colorTextIcons"
+                        android:text="@{genre}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:textSize="@dimen/_13ssp"
+                        android:text="@string/u2022"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:id="@+id/textRuntime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:textSize="@dimen/_12ssp"
+                        android:textColor="@color/colorTextIcons"
+                        android:text="@{runtime}" />
+                    
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/viewDivider2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:background="@color/colorTextSecondary"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutMisc"
+                    app:layout_constraintStart_toStartOf="@id/textDescription"
+                    app:layout_constraintEnd_toEndOf="@id/textDescription"  />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonWebsite"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:textSize="@dimen/_12ssp"
+                    android:text="@string/website"
+                    android:backgroundTint="@color/colorAccent"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewDivider2"
+                    app:layout_constraintBottom_toBottomOf="parent" 
+                    app:layout_constraintEnd_toStartOf="@id/buttonEpisodes"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonEpisodes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:textSize="@dimen/_12ssp"
+                    android:text="@string/episodes"
+                    android:backgroundTint="@color/colorTextOther"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewDivider2"
+                    app:layout_constraintBottom_toBottomOf="parent" 
+                    app:layout_constraintStart_toEndOf="@+id/buttonWebsite"/>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
