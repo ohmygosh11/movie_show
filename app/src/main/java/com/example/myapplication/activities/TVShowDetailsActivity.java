@@ -1,17 +1,24 @@
 package com.example.myapplication.activities;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.myapplication.R;
+import com.example.myapplication.adapters.ImageSliderAdapter;
 import com.example.myapplication.databinding.ActivityTvshowDetailsBinding;
 import com.example.myapplication.viewmodels.TVShowDetailsViewModel;
 
@@ -42,8 +49,63 @@ public class TVShowDetailsActivity extends AppCompatActivity {
         String tvShowId = String.valueOf(getIntent().getIntExtra("id", -1));
         tvShowDetailsViewModel.getTVShowDetails(tvShowId).observe(this, tvShowDetailsResponse -> {
             activityTvshowDetailsBinding.setIsLoading(false);
-            Toast.makeText(this, tvShowDetailsResponse.getTvShowDetails().getUrl(), Toast.LENGTH_SHORT).show();
+            if (tvShowDetailsResponse.getTvShowDetails() != null) {
+                if (tvShowDetailsResponse.getTvShowDetails().getPictures() != null) {
+                    loadImageSliders(tvShowDetailsResponse.getTvShowDetails().getPictures());
+                }
+            }
         });
     }
 
+    private void loadImageSliders(String[] sliderImages) {
+        activityTvshowDetailsBinding.sliderViewPager.setOffscreenPageLimit(1);
+        activityTvshowDetailsBinding.sliderViewPager.setAdapter(new ImageSliderAdapter(sliderImages));
+        activityTvshowDetailsBinding.sliderViewPager.setVisibility(View.VISIBLE);
+        activityTvshowDetailsBinding.viewFadingEdge.setVisibility(View.VISIBLE);
+        setupSliderIndicators(sliderImages.length);
+        activityTvshowDetailsBinding.sliderViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                setCurrentSliderIndicator(position);
+            }
+        });
+    }
+
+    private void setupSliderIndicators(int count) {
+        ImageView[] indicators = new ImageView[count];
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        layoutParams.setMargins(8,0,8,0);
+        for (int i = 0; i < count; i++) {
+            indicators[i] = new ImageView(getApplicationContext());
+            indicators[i].setImageDrawable(ContextCompat.getDrawable(
+                    getApplicationContext(),
+                    R.drawable.background_slider_indicator_inactive
+            ));
+            indicators[i].setLayoutParams(layoutParams);
+            activityTvshowDetailsBinding.layoutSliderIndicators.addView(indicators[i]);
+        }
+        activityTvshowDetailsBinding.layoutSliderIndicators.setVisibility(View.VISIBLE);
+        setCurrentSliderIndicator(0);
+    }
+
+    private void setCurrentSliderIndicator(int position) {
+        int childCount = activityTvshowDetailsBinding.layoutSliderIndicators.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            ImageView sliderIndicator = (ImageView) activityTvshowDetailsBinding.layoutSliderIndicators.getChildAt(i);
+            if (i == position) {
+                sliderIndicator.setImageDrawable(ContextCompat.getDrawable(
+                        getApplicationContext(),
+                        R.drawable.background_slider_indicator_active
+                ));
+            } else {
+                sliderIndicator.setImageDrawable(ContextCompat.getDrawable(
+                        getApplicationContext(),
+                        R.drawable.background_slider_indicator_inactive
+                ));
+            }
+        }
+    }
 }
