@@ -178,12 +178,9 @@ public class TVShowDetailsActivity extends AppCompatActivity {
         activityTvshowDetailsBinding.buttonEpisodes.setVisibility(View.VISIBLE);
         activityTvshowDetailsBinding.buttonWebsite.setVisibility(View.VISIBLE);
 
-        activityTvshowDetailsBinding.buttonWebsite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tvShowDetails.getUrl()));
-                startActivity(intent);
-            }
+        activityTvshowDetailsBinding.buttonWebsite.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tvShowDetails.getUrl()));
+            startActivity(intent);
         });
     }
 }
