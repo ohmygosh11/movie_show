@@ -186,6 +186,7 @@ public class TVShowDetailsActivity extends AppCompatActivity {
         activityTvshowDetailsBinding.layoutMisc.setVisibility(View.VISIBLE);
         activityTvshowDetailsBinding.buttonEpisodes.setVisibility(View.VISIBLE);
         activityTvshowDetailsBinding.buttonWebsite.setVisibility(View.VISIBLE);
+        activityTvshowDetailsBinding.imageWatchlist.setVisibility(View.VISIBLE);
 
         activityTvshowDetailsBinding.buttonWebsite.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tvShowDetails.getUrl()));
