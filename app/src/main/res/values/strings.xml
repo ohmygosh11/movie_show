@@ -6,4 +6,5 @@
     <string name="website">Visit Website</string>
     <string name="movie_app_name">CineStream App</string>
     <string name="watch_now">Watch Now</string>
+    <string name="watchlist">Watchlist</string>
 </resources>

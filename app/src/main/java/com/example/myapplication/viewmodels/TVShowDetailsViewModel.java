@@ -2,6 +2,7 @@ package com.example.myapplication.viewmodels;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
@@ -16,7 +17,7 @@ public class TVShowDetailsViewModel extends AndroidViewModel {
     private TVShowDetailsRepository tvShowDetailsRepository;
     private TVShowDatabase tvShowDatabase;
 
-    public TVShowDetailsViewModel(Application application) {
+    public TVShowDetailsViewModel(@NonNull Application application) {
         super(application);
         tvShowDetailsRepository = new TVShowDetailsRepository();
         tvShowDatabase = TVShowDatabase.getTvShowDatabase(application);
