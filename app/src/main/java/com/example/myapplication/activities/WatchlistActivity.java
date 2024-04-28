@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.R;
 import com.example.myapplication.adapters.WatchlistAdapter;
-import com.example.myapplication.databinding.ActivityTvshowDetailsBinding;
 import com.example.myapplication.databinding.ActivityWatchlistBinding;
 import com.example.myapplication.listeners.WatchlistListener;
 import com.example.myapplication.models.TVShow;
@@ -57,22 +56,18 @@ public class WatchlistActivity extends AppCompatActivity implements WatchlistLis
     private void loadWatchlist() {
         activityWatchlistBinding.setIsLoading(true);
         CompositeDisposable compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(watchlistViewModel.loadWatchlist()
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(tvShows -> {
-                    activityWatchlistBinding.setIsLoading(false);
-                    if (!watchlist.isEmpty()) {
-                        watchlist.clear();
-                    }
-                    watchlist.addAll(tvShows);
+        compositeDisposable.add(watchlistViewModel.loadWatchlist().subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(tvShows -> {
+            activityWatchlistBinding.setIsLoading(false);
+            if (!watchlist.isEmpty()) {
+                watchlist.clear();
+            }
+            watchlist.addAll(tvShows);
 
-                    watchlistAdapter = new WatchlistAdapter(watchlist, this);
-                    activityWatchlistBinding.watchlistRecyclerView.setAdapter(watchlistAdapter);
-                    activityWatchlistBinding.watchlistRecyclerView.setVisibility(View.VISIBLE);
-                    compositeDisposable.dispose();
-                })
-        );
+            watchlistAdapter = new WatchlistAdapter(watchlist, this);
+            activityWatchlistBinding.watchlistRecyclerView.setAdapter(watchlistAdapter);
+            activityWatchlistBinding.watchlistRecyclerView.setVisibility(View.VISIBLE);
+            compositeDisposable.dispose();
+        }));
 
 
     }
@@ -87,15 +82,12 @@ public class WatchlistActivity extends AppCompatActivity implements WatchlistLis
     @Override
     public void removeTVShowFromWatchlist(TVShow tvShow, int position) {
         CompositeDisposable compositeDisposable = new CompositeDisposable();
-        compositeDisposable.add(watchlistViewModel.removeTVShowFromWatchlist(tvShow)
-                .subscribeOn(Schedulers.computation())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(() -> {
-                    watchlist.remove(position);
-                    watchlistAdapter.notifyItemRemoved(position);
-                    Toast.makeText(this, "Removed from watchlist", Toast.LENGTH_SHORT).show();
-                    compositeDisposable.dispose();
-                }));
+        compositeDisposable.add(watchlistViewModel.removeTVShowFromWatchlist(tvShow).subscribeOn(Schedulers.computation()).observeOn(AndroidSchedulers.mainThread()).subscribe(() -> {
+            watchlist.remove(position);
+            watchlistAdapter.notifyItemRemoved(position);
+            Toast.makeText(this, "Removed from watchlist", Toast.LENGTH_SHORT).show();
+            compositeDisposable.dispose();
+        }));
     }
 
     @Override
