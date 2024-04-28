@@ -12,23 +12,23 @@
         <variable
             name="tvShowImageUrl"
             type="String" />
-        
+
         <variable
             name="tvShowName"
             type="String" />
-        
+
         <variable
             name="networkCountry"
             type="String" />
-        
+
         <variable
             name="status"
             type="String" />
-        
+
         <variable
             name="startedDate"
             type="String" />
-        
+
         <variable
             name="description"
             type="String" />
@@ -124,14 +124,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
-                    android:maxLines="1"
                     android:ellipsize="end"
                     android:fontFamily="@font/ubuntu_bold"
                     android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@{tvShowName}"
                     android:textColor="@color/colorTextIcons"
                     android:textSize="@dimen/_14ssp"
                     android:visibility="gone"
-                    android:text="@{tvShowName}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageTVShow"
                     app:layout_constraintTop_toBottomOf="@+id/sliderViewPager" />
@@ -141,33 +141,33 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:maxLines="1"
                     android:ellipsize="end"
                     android:fontFamily="@font/ubuntu_regular"
                     android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@{networkCountry}"
                     android:textColor="@color/colorTextOther"
                     android:textSize="@dimen/_12ssp"
                     android:visibility="gone"
-                    android:text="@{networkCountry}"
-                    app:layout_constraintStart_toStartOf="@id/textName"
                     app:layout_constraintEnd_toEndOf="@id/textName"
-                    app:layout_constraintTop_toBottomOf="@id/textName"/>
+                    app:layout_constraintStart_toStartOf="@id/textName"
+                    app:layout_constraintTop_toBottomOf="@id/textName" />
 
                 <TextView
                     android:id="@+id/textStatus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:maxLines="1"
                     android:ellipsize="end"
                     android:fontFamily="@font/ubuntu_regular"
-                    android:textSize="@dimen/_12ssp"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
                     android:text="@{status}"
                     android:textColor="@android:color/holo_green_light"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="gone"
-                    android:includeFontPadding="false"
-                    app:layout_constraintStart_toStartOf="@id/textName"
                     app:layout_constraintEnd_toEndOf="@id/textName"
+                    app:layout_constraintStart_toStartOf="@id/textName"
                     app:layout_constraintTop_toBottomOf="@id/textNetworkCountry" />
 
                 <TextView
@@ -175,16 +175,16 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
-                    android:maxLines="1"
                     android:ellipsize="end"
-                    android:includeFontPadding="false"
                     android:fontFamily="@font/ubuntu_regular"
-                    android:textSize="@dimen/_12ssp"
-                    android:textColor="@color/colorTextSecondary"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
                     android:text='@{"Started on: " + startedDate}'
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="gone"
-                    app:layout_constraintStart_toStartOf="@id/textName"
                     app:layout_constraintEnd_toEndOf="@id/textName"
+                    app:layout_constraintStart_toStartOf="@id/textName"
                     app:layout_constraintTop_toBottomOf="@+id/textStatus" />
 
                 <TextView
@@ -194,15 +194,15 @@
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
-                    android:maxLines="4"
                     android:ellipsize="end"
-                    android:includeFontPadding="false"
                     android:fontFamily="@font/ubuntu_regular"
-                    android:textSize="@dimen/_11ssp"
-                    android:textColor="@color/colorTextIcons"
-                    android:text="@{description}"
-                    android:visibility="gone"
+                    android:includeFontPadding="false"
                     android:lineSpacingExtra="@dimen/_2sdp"
+                    android:maxLines="4"
+                    android:text="@{description}"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="@dimen/_11ssp"
+                    android:visibility="gone"
                     app:layout_constraintTop_toBottomOf="@+id/imageTVShow" />
 
                 <TextView
@@ -211,10 +211,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_3sdp"
                     android:fontFamily="@font/ubuntu_medium"
-                    android:textSize="@dimen/_12ssp"
+                    android:includeFontPadding="false"
                     android:text="@string/read_more"
                     android:textColor="@color/colorAccent"
-                    android:includeFontPadding="false"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="gone"
                     app:layout_constraintStart_toStartOf="@id/textDescription"
                     app:layout_constraintTop_toBottomOf="@id/textDescription" />
@@ -226,21 +226,21 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:background="@color/colorTextSecondary"
                     android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@+id/textReadMore"
+                    app:layout_constraintEnd_toEndOf="@id/textDescription"
                     app:layout_constraintStart_toStartOf="@id/textDescription"
-                    app:layout_constraintEnd_toEndOf="@id/textDescription"  />
+                    app:layout_constraintTop_toBottomOf="@+id/textReadMore" />
 
                 <LinearLayout
                     android:id="@+id/layoutMisc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:visibility="gone"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@id/viewDivider1"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/textDescription"
                     app:layout_constraintStart_toStartOf="@id/textDescription"
-                    app:layout_constraintEnd_toEndOf="@id/textDescription">
+                    app:layout_constraintTop_toBottomOf="@id/viewDivider1">
 
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
@@ -254,54 +254,54 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:includeFontPadding="false"
                         android:fontFamily="@font/ubuntu_regular"
-                        android:textSize="@dimen/_12ssp"
+                        android:includeFontPadding="false"
+                        android:text="@{rating}"
                         android:textColor="@color/colorTextIcons"
-                        android:text="@{rating}" />
+                        android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
-                        android:includeFontPadding="false"
                         android:fontFamily="@font/ubuntu_bold"
-                        android:textSize="@dimen/_13ssp"
+                        android:includeFontPadding="false"
                         android:text="@string/u2022"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/_13ssp" />
 
                     <TextView
                         android:id="@+id/textGenre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
-                        android:includeFontPadding="false"
                         android:fontFamily="@font/ubuntu_regular"
-                        android:textSize="@dimen/_12ssp"
+                        android:includeFontPadding="false"
+                        android:text="@{genre}"
                         android:textColor="@color/colorTextIcons"
-                        android:text="@{genre}" />
+                        android:textSize="@dimen/_12ssp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
-                        android:includeFontPadding="false"
                         android:fontFamily="@font/ubuntu_bold"
-                        android:textSize="@dimen/_13ssp"
+                        android:includeFontPadding="false"
                         android:text="@string/u2022"
-                        android:textColor="@color/colorAccent" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/_13ssp" />
 
                     <TextView
                         android:id="@+id/textRuntime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_8sdp"
-                        android:includeFontPadding="false"
                         android:fontFamily="@font/ubuntu_regular"
-                        android:textSize="@dimen/_12ssp"
+                        android:includeFontPadding="false"
+                        android:text="@{runtime}"
                         android:textColor="@color/colorTextIcons"
-                        android:text="@{runtime}" />
-                    
+                        android:textSize="@dimen/_12ssp" />
+
                 </LinearLayout>
 
                 <View
@@ -311,42 +311,42 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:background="@color/colorTextSecondary"
                     android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@+id/layoutMisc"
+                    app:layout_constraintEnd_toEndOf="@id/textDescription"
                     app:layout_constraintStart_toStartOf="@id/textDescription"
-                    app:layout_constraintEnd_toEndOf="@id/textDescription"  />
+                    app:layout_constraintTop_toBottomOf="@+id/layoutMisc" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonWebsite"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_8sdp"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:textSize="@dimen/_12ssp"
-                    android:text="@string/website"
                     android:backgroundTint="@color/colorAccent"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/website"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/buttonEpisodes"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/viewDivider2"
-                    app:layout_constraintBottom_toBottomOf="parent" 
-                    app:layout_constraintEnd_toStartOf="@id/buttonEpisodes"/>
+                    app:layout_constraintTop_toBottomOf="@+id/viewDivider2" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonEpisodes"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_8sdp"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:textSize="@dimen/_12ssp"
-                    android:text="@string/watch_now"
                     android:backgroundTint="@android:color/holo_green_light"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:includeFontPadding="false"
+                    android:text="@string/watch_now"
                     android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_12ssp"
                     android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/viewDivider2"
-                    app:layout_constraintBottom_toBottomOf="parent" 
-                    app:layout_constraintStart_toEndOf="@+id/buttonWebsite"/>
+                    app:layout_constraintStart_toEndOf="@+id/buttonWebsite"
+                    app:layout_constraintTop_toBottomOf="@+id/viewDivider2" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -359,10 +359,10 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_20sdp"
-            android:padding="@dimen/_8sdp"
             android:background="@drawable/background_fab"
-            android:src="@drawable/ic_watchlist"
             android:contentDescription="@string/app_name"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_watchlist"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -377,7 +377,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
