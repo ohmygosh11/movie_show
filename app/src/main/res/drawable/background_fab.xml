@@ -3,4 +3,8 @@
     android:shape="oval">
 
     <solid android:color="@color/colorThemeExtra"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
 </shape>
