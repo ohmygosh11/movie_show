@@ -7,4 +7,5 @@
     <string name="movie_app_name">CineStream App</string>
     <string name="watch_now">Watch Now</string>
     <string name="watchlist">Watchlist</string>
+    <string name="search_tv_movie">Search TV Movie</string>
 </resources>
