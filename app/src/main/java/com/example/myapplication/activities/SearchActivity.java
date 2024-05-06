@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.speech.RecognizerIntent;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -37,6 +40,7 @@ public class SearchActivity extends AppCompatActivity implements TVShowsListener
     private int currentPage = 1;
     private int totalPages = 1;
     private Timer timer;
+    private static final int RECOGNIZER_RESULT = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,13 @@ public class SearchActivity extends AppCompatActivity implements TVShowsListener
         tvShows = new ArrayList<>();
         tvShowsAdapter = new TVShowsAdapter(tvShows, this);
         activitySearchBinding.tvShowsRecyclerView.setAdapter(tvShowsAdapter);
+//        handle click voice search
+        activitySearchBinding.voiceSearch.setOnClickListener(v -> {
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text");
+            startActivityForResult(intent, RECOGNIZER_RESULT);
+        });
 //        handle on input text change
         activitySearchBinding.inputSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -142,5 +153,19 @@ public class SearchActivity extends AppCompatActivity implements TVShowsListener
         Intent intent = new Intent(getApplicationContext(), TVShowDetailsActivity.class);
         intent.putExtra("tvShow", tvShow);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RECOGNIZER_RESULT && resultCode == RESULT_OK) {
+            if (data != null) {
+                ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                if (matches != null) {
+                    activitySearchBinding.inputSearch.setText(matches.get(0));
+                }
+            }
+
+        }
     }
 }
