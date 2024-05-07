@@ -9,15 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ItemContainerEpisodeBinding;
+import com.example.myapplication.listeners.EpisodesListener;
 import com.example.myapplication.models.Episode;
 
 import java.util.List;
 
 public class EpisodesAdapter extends RecyclerView.Adapter<EpisodesAdapter.EpisodeViewHolder> {
-    List<Episode> episodes;
+    private List<Episode> episodes;
+    private EpisodesListener episodesListener;
 
-    public EpisodesAdapter(List<Episode> episodes) {
+    public EpisodesAdapter(List<Episode> episodes, EpisodesListener episodesListener) {
         this.episodes = episodes;
+        this.episodesListener = episodesListener;
     }
 
     @NonNull
@@ -40,7 +43,7 @@ public class EpisodesAdapter extends RecyclerView.Adapter<EpisodesAdapter.Episod
         return episodes.size();
     }
 
-    public static class EpisodeViewHolder extends RecyclerView.ViewHolder {
+    public class EpisodeViewHolder extends RecyclerView.ViewHolder {
         private ItemContainerEpisodeBinding itemContainerEpisodeBinding;
         public EpisodeViewHolder(ItemContainerEpisodeBinding itemContainerEpisodeBinding) {
             super(itemContainerEpisodeBinding.getRoot());
@@ -60,7 +63,9 @@ public class EpisodesAdapter extends RecyclerView.Adapter<EpisodesAdapter.Episod
             itemContainerEpisodeBinding.setTitle(title);
             itemContainerEpisodeBinding.setName(episode.getName());
             itemContainerEpisodeBinding.setAirDate(episode.getAirDate());
-
+            itemContainerEpisodeBinding.getRoot().setOnClickListener(v -> {
+                episodesListener.onEpisodeClicked(episode);
+            });
         }
     }
 }

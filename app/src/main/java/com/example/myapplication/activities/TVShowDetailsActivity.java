@@ -31,6 +31,8 @@ import com.example.myapplication.adapters.EpisodesAdapter;
 import com.example.myapplication.adapters.ImageSliderAdapter;
 import com.example.myapplication.databinding.ActivityTvshowDetailsBinding;
 import com.example.myapplication.databinding.LayoutEpisodesBottomSheetBinding;
+import com.example.myapplication.listeners.EpisodesListener;
+import com.example.myapplication.models.Episode;
 import com.example.myapplication.models.TVShow;
 import com.example.myapplication.models.TVShowDetails;
 import com.example.myapplication.viewmodels.TVShowDetailsViewModel;
@@ -44,7 +46,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
-public class TVShowDetailsActivity extends AppCompatActivity {
+public class TVShowDetailsActivity extends AppCompatActivity implements EpisodesListener {
     private ActivityTvshowDetailsBinding activityTvshowDetailsBinding;
     private LayoutEpisodesBottomSheetBinding layoutEpisodesBottomSheetBinding;
     private TVShowDetailsViewModel tvShowDetailsViewModel;
@@ -235,14 +237,13 @@ public class TVShowDetailsActivity extends AppCompatActivity {
                 );
                 bottomSheetDialog.setContentView(layoutEpisodesBottomSheetBinding.getRoot());
                 layoutEpisodesBottomSheetBinding.episodesRecyclerView.setAdapter(
-                        new EpisodesAdapter(tvShowDetails.getEpisodes())
+                        new EpisodesAdapter(tvShowDetails.getEpisodes(), this)
                 );
                 layoutEpisodesBottomSheetBinding.textHeader.setText(
                         String.format("Episode | %s", tvShow.getName())
                 );
                 layoutEpisodesBottomSheetBinding.imageClose.setOnClickListener(v1 -> bottomSheetDialog.dismiss());
             }
-
 
             FrameLayout frameLayout = bottomSheetDialog.findViewById(
                     com.google.android.material.R.id.design_bottom_sheet
@@ -281,5 +282,14 @@ public class TVShowDetailsActivity extends AppCompatActivity {
             }
         
         });
+    }
+
+
+
+    @Override
+    public void onEpisodeClicked(Episode episode) {
+        Intent intent = new Intent(getApplicationContext(), VideoPlayerActivity.class);
+        intent.putExtra("episodeUrl", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4");
+        startActivity(intent);
     }
 }
