@@ -40,7 +40,7 @@ public class SearchActivity extends AppCompatActivity implements TVShowsListener
     private int currentPage = 1;
     private int totalPages = 1;
     private Timer timer;
-    private static final int RECOGNIZER_RESULT = 1;
+    private static final int RECOGNIZER_REQUEST = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +65,7 @@ public class SearchActivity extends AppCompatActivity implements TVShowsListener
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speech to text");
-            startActivityForResult(intent, RECOGNIZER_RESULT);
+            startActivityForResult(intent, RECOGNIZER_REQUEST);
         });
 //        handle on input text change
         activitySearchBinding.inputSearch.addTextChangedListener(new TextWatcher() {
@@ -158,11 +158,11 @@ public class SearchActivity extends AppCompatActivity implements TVShowsListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RECOGNIZER_RESULT && resultCode == RESULT_OK) {
+        if (requestCode == RECOGNIZER_REQUEST && resultCode == RESULT_OK) {
             if (data != null) {
-                ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                if (matches != null) {
-                    activitySearchBinding.inputSearch.setText(matches.get(0));
+                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                if (result != null) {
+                    activitySearchBinding.inputSearch.setText(result.get(0));
                 }
             }
 

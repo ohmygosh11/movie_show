@@ -359,7 +359,7 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_20sdp"
-            android:background="@drawable/background_fab"
+            android:background="@drawable/background_fab_watchlist"
             android:contentDescription="@string/app_name"
             android:padding="@dimen/_8sdp"
             android:src="@drawable/ic_watchlist"

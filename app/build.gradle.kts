@@ -34,10 +34,11 @@ android {
     buildFeatures {
         dataBinding = true
     }
-
     buildToolsVersion = "30.0.3"
 
 }
+
+
 
 dependencies {
 
@@ -73,4 +74,6 @@ dependencies {
     implementation(libs.media3.exoplayer)
     implementation(libs.media3.exoplayer.dash)
     implementation(libs.media3.ui)
+//    OkHttp
+    implementation(libs.okhttp)
 }

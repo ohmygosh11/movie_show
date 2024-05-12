@@ -8,4 +8,8 @@
     <string name="watch_now">Watch Now</string>
     <string name="watchlist">Watchlist</string>
     <string name="search_tv_movie">Search TV Movie</string>
+    <string name="cineai_chatbot">CineAI ChatBot</string>
+    <string name="welcome_to_cineai_chatbot">Welcome to CineAI Chatbot !</string>
+    <string name="welcome_to_chat">Welcome to CineAI Chatbot \nTry it now !</string>
+    <string name="ask_me_anything">Ask me anything ...</string>
 </resources>

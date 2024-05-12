@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp">
+
+        <LinearLayout
+            android:id="@+id/layoutRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_24sdp"
+            android:paddingEnd="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/textRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_12sdp"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_12ssp"
+                android:lineSpacingExtra="@dimen/_2sdp"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/colorTextIcons"
+                android:textIsSelectable="true"
+                android:background="@drawable/background_message" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_android"
+                android:contentDescription="@string/app_name"
+                app:tint="@color/colorChatTheme" />
+
+            <TextView
+                android:id="@+id/textLeft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="@dimen/_2sdp"
+                android:fontFamily="@font/ubuntu_regular"
+                android:textSize="@dimen/_13ssp"
+                android:textIsSelectable="true"
+                android:textColor="@color/colorTextIcons" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+</layout>

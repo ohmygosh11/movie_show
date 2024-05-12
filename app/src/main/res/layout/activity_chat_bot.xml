@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/colorPrimary"
+        tools:context=".activities.ChatBotActivity">
+
+        <LinearLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:contentDescription="@string/app_name"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:src="@drawable/ic_android"
+                app:tint="@color/colorChatTheme" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/ubuntu_bold"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/cineai_chatbot"
+                android:textColor="@color/colorTextIcons"
+                android:textSize="@dimen/_14ssp" />
+
+            <ImageView
+                android:id="@+id/imageClose"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/ic_close"
+                android:contentDescription="@string/app_name"
+                app:tint="@color/colorTextIcons" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:text="@string/welcome_to_chat"
+            android:textColor="@color/colorTextSecondary"
+            android:lineSpacingExtra="@dimen/_4sdp"
+            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/ubuntu_bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewChat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_8sdp"
+            app:stackFromEnd="true"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeader"
+            app:layout_constraintBottom_toTopOf="@+id/inputChat"
+             />
+
+        <EditText
+            android:id="@+id/inputChat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_14sdp"
+            android:paddingStart="@dimen/_16sdp"
+            android:paddingEnd="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_14sdp"
+            android:includeFontPadding="false"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:background="@drawable/background_input_chat"
+            android:hint="@string/ask_me_anything"
+            android:textColorHint="@color/colorTextSecondary"
+            android:textColor="@color/colorTextIcons"
+            android:textSize="@dimen/_14ssp"
+            android:fontFamily="@font/ubuntu_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/imageSendChat"/>
+
+        <ImageView
+            android:id="@+id/imageVoiceChat"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:padding="@dimen/_1sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:src="@drawable/ic_voice"
+            android:contentDescription="@string/app_name"
+            app:tint="@color/colorTextIcons"
+            app:layout_constraintTop_toTopOf="@id/inputChat"
+            app:layout_constraintBottom_toBottomOf="@id/inputChat"
+            app:layout_constraintEnd_toEndOf="@id/inputChat"/>
+
+        <ImageView
+            android:id="@+id/imageSendChat"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/ic_send"
+            android:contentDescription="@string/app_name"
+            app:tint="@color/colorChatTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/inputChat"
+            app:layout_constraintTop_toTopOf="@id/inputChat"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
