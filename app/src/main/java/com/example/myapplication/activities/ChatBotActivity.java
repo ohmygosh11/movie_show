@@ -42,7 +42,7 @@ public class ChatBotActivity extends AppCompatActivity {
     List<Message> messages;
     MessageAdapter messageAdapter;
     private static final String OPENAI_URL = "https://api.openai.com/v1/chat/completions";
-    private static final String OPENAI_API_KEY = "sk-proj-KorQcF4gthz6UlSxd4orT3BlbkFJJHdyhdkgQ8eMEKWk8O7S";
+    private static final String OPENAI_API_KEY = "sk-proj-ZahEa4JlMtfCzixhcgD2T3BlbkFJ51Xh3JaEaBAcT7IodrgE";
     public static final MediaType JSON = MediaType.get("application/json");
     OkHttpClient client = new OkHttpClient.Builder()
             .readTimeout(60, TimeUnit.SECONDS)

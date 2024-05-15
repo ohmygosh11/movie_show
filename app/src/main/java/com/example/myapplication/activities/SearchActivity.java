@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
 import com.example.myapplication.adapters.TVShowsAdapter;
 import com.example.myapplication.databinding.ActivitySearchBinding;
+import com.example.myapplication.databinding.LayoutEpisodesBottomSheetBinding;
 import com.example.myapplication.listeners.TVShowsListener;
 import com.example.myapplication.models.TVShow;
 import com.example.myapplication.viewmodels.SearchViewModel;

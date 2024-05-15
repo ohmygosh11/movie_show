@@ -10,4 +10,5 @@
     <color name="colorTextOther">#FAD303</color>
     <color name="colorThemeExtra">#FF5252</color>
     <color name="colorChatTheme">#21AF85</color>
+    <color name="colorBorderInput">@color/material_dynamic_neutral80</color>
 </resources>

@@ -12,4 +12,14 @@
     <string name="welcome_to_cineai_chatbot">Welcome to CineAI Chatbot !</string>
     <string name="welcome_to_chat">Welcome to CineAI Chatbot \nTry it now !</string>
     <string name="ask_me_anything">Ask me anything ...</string>
+    <string name="add_your_payment_information">Add your payment information</string>
+    <string name="card_information">Card Information</string>
+    <string name="card_number">Card number</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="cvc">CVC</string>
+    <string name="billing_address">Billing Address</string>
+    <string name="zip_code">Zip Code</string>
+    <string name="pay_10_99">Pay 10.99 $</string>
+    <string name="premium">Premium 👑</string>
+    <string name="vote_here">Vote here</string>
 </resources>
