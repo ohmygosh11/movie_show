@@ -4,7 +4,6 @@
     <string name="read_less">Read Less</string>
     <string name="u2022">•</string>
     <string name="website">Visit Website</string>
-    <string name="movie_app_name">CineStream App</string>
     <string name="watch_now">Watch Now</string>
     <string name="watchlist">Watchlist</string>
     <string name="search_tv_movie">Search TV Movie</string>
@@ -23,4 +22,5 @@
     <string name="premium">Premium 👑</string>
     <string name="vote_here">Vote here</string>
     <string name="note_this_is_a_test_mode_you_can_enter_any_information">Note: This is a test mode. You can enter any information.</string>
+    <string name="cinestream">"  "CineStream</string>
 </resources>

@@ -35,18 +35,22 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/textAppName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
+                android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:fontFamily="@font/ubuntu_bold"
                 android:includeFontPadding="false"
                 android:maxLines="1"
-                android:text="@string/movie_app_name"
+                android:text="@string/cinestream"
                 android:textColor="@color/colorTextIcons"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_14ssp"
+                app:drawableStartCompat="@drawable/ic_movie"
+                app:drawableTint="@color/colorTextIcons" />
 
             <ImageView
                 android:id="@+id/imageWatchlist"
