@@ -11,7 +11,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.media3.common.ErrorMessageProvider;
 import androidx.media3.common.MediaItem;
+import androidx.media3.common.util.UnstableApi;
 import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.ui.PlayerControlView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityVideoPlayerBinding;
@@ -34,18 +36,16 @@ public class VideoPlayerActivity extends AppCompatActivity {
         doInitialization();
     }
 
+    @UnstableApi
     private void doInitialization() {
         exoPlayer = new ExoPlayer.Builder(this).build();
         activityVideoPlayerBinding.playerView.setPlayer(exoPlayer);
+        activityVideoPlayerBinding.playerView.setShowNextButton(false);
+        activityVideoPlayerBinding.playerView.setShowPreviousButton(false);
+
         videoUrl = getIntent().getStringExtra("episodeUrl");
-        MediaItem mediaItem1 = MediaItem.fromUri(videoUrl);
-        MediaItem mediaItem2 = MediaItem.fromUri(videoUrl);
-        MediaItem mediaItem3 = MediaItem.fromUri(videoUrl);
-        MediaItem mediaItem4 = MediaItem.fromUri(videoUrl);
-        exoPlayer.addMediaItem(mediaItem1);
-        exoPlayer.addMediaItem(mediaItem2);
-        exoPlayer.addMediaItem(mediaItem3);
-        exoPlayer.addMediaItem(mediaItem4);
+        MediaItem mediaItem = MediaItem.fromUri(videoUrl);
+        exoPlayer.addMediaItem(mediaItem);
         exoPlayer.prepare();
         exoPlayer.play();
     }

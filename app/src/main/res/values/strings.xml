@@ -22,4 +22,5 @@
     <string name="pay_10_99">Pay 10.99 $</string>
     <string name="premium">Premium 👑</string>
     <string name="vote_here">Vote here</string>
+    <string name="note_this_is_a_test_mode_you_can_enter_any_information">Note: This is a test mode. You can enter any information.</string>
 </resources>

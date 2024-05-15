@@ -17,7 +17,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:show_buffering="when_playing"
+            app:show_shuffle_button="true"
+            app:show_subtitle_button="true"
+            app:show_vr_button="true"
+            app:use_controller="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

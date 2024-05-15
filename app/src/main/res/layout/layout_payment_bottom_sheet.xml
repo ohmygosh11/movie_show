@@ -204,6 +204,15 @@
             android:padding="@dimen/_12sdp"
             android:textSize="@dimen/_11ssp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:includeFontPadding="false"
+            android:text="@string/note_this_is_a_test_mode_you_can_enter_any_information"
+            android:textColor="@color/material_dynamic_neutral50"
+            android:textSize="@dimen/_10ssp" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonPay"
             android:layout_width="match_parent"
