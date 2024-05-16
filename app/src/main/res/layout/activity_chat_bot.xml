@@ -99,7 +99,7 @@
             android:includeFontPadding="false"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
-            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:inputType="text"
             android:background="@drawable/background_input_chat"
             android:hint="@string/ask_me_anything"
             android:textColorHint="@color/colorTextSecondary"
