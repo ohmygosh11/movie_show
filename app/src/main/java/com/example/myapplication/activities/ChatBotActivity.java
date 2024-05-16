@@ -42,8 +42,8 @@ public class ChatBotActivity extends AppCompatActivity {
     List<Message> messages;
     MessageAdapter messageAdapter;
     private static final String OPENAI_URL = "https://api.openai.com/v1/chat/completions";
-    private static final String OPENAI_API_KEY = "";
-//    sk-proj-mUYUG98lIl59xAO5jd7WT3BlbkFJCUQCSKz0I4k4Pr2POKMr
+    private static final String KEY = "";
+//    sk-proj-fILNpAA5vshtmH9QBWgrT3BlbkFJS0NKm9gHFexwogYXz9P4
     public static final MediaType JSON = MediaType.get("application/json");
     OkHttpClient client = new OkHttpClient.Builder()
             .readTimeout(60, TimeUnit.SECONDS)
@@ -126,7 +126,7 @@ public class ChatBotActivity extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonBody.toString(), JSON);
         Request request = new Request.Builder()
                 .url(OPENAI_URL)
-                .header("Authorization", "Bearer " + OPENAI_API_KEY)
+                .header("Authorization", "Bearer " + KEY)
                 .post(body)
                 .build();
         client.newCall(request).enqueue(new Callback() {
