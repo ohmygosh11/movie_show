@@ -52,7 +52,7 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:includeFontPadding="false"
             android:text="@string/card_information"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="#747679"
             android:textSize="@dimen/_10ssp" />
 
         <LinearLayout
@@ -176,7 +176,7 @@
             android:layout_marginTop="@dimen/_12sdp"
             android:includeFontPadding="false"
             android:text="@string/billing_address"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="#747679"
             android:textSize="@dimen/_10ssp" />
 
         <Spinner
@@ -210,7 +210,7 @@
             android:layout_marginTop="@dimen/_8sdp"
             android:includeFontPadding="false"
             android:text="@string/note_this_is_a_test_mode_you_can_enter_any_information"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="#747679"
             android:textSize="@dimen/_10ssp" />
 
         <com.google.android.material.button.MaterialButton
