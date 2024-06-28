@@ -166,7 +166,6 @@ public class SearchActivity extends AppCompatActivity implements TVShowsListener
                     activitySearchBinding.inputSearch.setText(result.get(0));
                 }
             }
-
         }
     }
 }

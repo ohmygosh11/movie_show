@@ -360,5 +360,4 @@ public class TVShowDetailsActivity extends AppCompatActivity implements Episodes
         intent.putExtra("episodeUrl", "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4");
         startActivity(intent);
     }
-
 }

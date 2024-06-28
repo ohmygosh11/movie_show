@@ -15,5 +15,4 @@ public class SearchViewModel extends ViewModel {
     public LiveData<TVShowResponse> searchTVShow(String query, int page) {
         return searchTVShowRepository.searchTVShow(query, page);
     }
-
 }

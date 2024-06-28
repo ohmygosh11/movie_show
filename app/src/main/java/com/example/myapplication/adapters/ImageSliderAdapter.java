@@ -49,6 +49,5 @@ public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.
             itemContainerSliderImageBinding.setImageURL(URL);
             itemContainerSliderImageBinding.executePendingBindings();
         }
-
     }
 }

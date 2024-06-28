@@ -14,5 +14,4 @@
         android:contentDescription="@string/app_name"
         android:imageUrl="@{imageURL}"
         android:scaleType="centerCrop" />
-
 </layout>

@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="tvShow"
             type="com.example.myapplication.models.TVShow" />
@@ -108,9 +107,9 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_delete"
             android:visibility="gone"
-            app:tint="@android:color/holo_red_light"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@android:color/holo_red_light" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

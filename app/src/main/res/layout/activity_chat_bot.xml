@@ -91,7 +91,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="@dimen/_14sdp"
-            android:paddingStart="@dimen/_16sdp"
+            android:paddingStart="@dimen/_32sdp"
             android:paddingEnd="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
@@ -122,6 +122,20 @@
             app:layout_constraintTop_toTopOf="@id/inputChat"
             app:layout_constraintBottom_toBottomOf="@id/inputChat"
             app:layout_constraintEnd_toEndOf="@id/inputChat"/>
+
+        <ImageView
+            android:id="@+id/imageAttach"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:padding="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:src="@drawable/ic_attach"
+            android:contentDescription="@string/app_name"
+            app:tint="@color/colorTextPrimary"
+            app:layout_constraintTop_toTopOf="@id/inputChat"
+            app:layout_constraintBottom_toBottomOf="@id/inputChat"
+            app:layout_constraintStart_toStartOf="@id/inputChat" />
+
 
         <ImageView
             android:id="@+id/imageSendChat"

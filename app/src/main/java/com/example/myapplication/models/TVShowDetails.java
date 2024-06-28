@@ -54,3 +54,4 @@ public class TVShowDetails {
         return episodes;
     }
 }
+

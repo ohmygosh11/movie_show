@@ -17,3 +17,4 @@ public class MostPopularTVShowsViewModel extends ViewModel {
         return mostPopularTVShowsRepository.getMostPopularTVShows(page);
     }
 }
+

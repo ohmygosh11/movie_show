@@ -218,11 +218,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_8sdp"
+            android:alpha="0.3"
             android:backgroundTint="@color/colorPrimary"
+            android:enabled="false"
             android:text="@string/pay_10_99"
             android:textColor="@color/colorTextIcons"
-            android:alpha="0.3"
-            android:enabled="false"
             app:cornerRadius="@dimen/_6sdp" />
 
     </LinearLayout>

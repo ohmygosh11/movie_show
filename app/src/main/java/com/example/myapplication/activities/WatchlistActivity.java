@@ -68,8 +68,6 @@ public class WatchlistActivity extends AppCompatActivity implements WatchlistLis
             activityWatchlistBinding.watchlistRecyclerView.setVisibility(View.VISIBLE);
             compositeDisposable.dispose();
         }));
-
-
     }
 
     @Override

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="isLoading"
             type="Boolean" />
@@ -33,39 +34,39 @@
             android:padding="@dimen/_8sdp"
             app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/imageBack"
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_back"
-                    app:tint="@color/colorTextIcons" />
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_back"
+                app:tint="@color/colorTextIcons" />
 
-                <EditText
-                    android:id="@+id/inputSearch"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:background="@null"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:textSize="@dimen/_13ssp"
-                    android:textColor="@color/colorTextIcons"
-                    android:hint="@string/search_tv_movie"
-                    android:textColorHint="@color/colorTextSecondary"
-                    android:imeOptions="actionDone"
-                    android:importantForAutofill="no"
-                    android:inputType="text" />
+            <EditText
+                android:id="@+id/inputSearch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="@font/ubuntu_regular"
+                android:hint="@string/search_tv_movie"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:textColor="@color/colorTextIcons"
+                android:textColorHint="@color/colorTextSecondary"
+                android:textSize="@dimen/_13ssp" />
 
-                <ImageView
-                    android:id="@+id/voiceSearch"
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_voice"
-                    app:tint="@color/colorTextIcons" />
+            <ImageView
+                android:id="@+id/voiceSearch"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_voice"
+                app:tint="@color/colorTextIcons" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -79,8 +80,8 @@
             android:paddingEnd="@dimen/_4sdp"
             android:paddingBottom="@dimen/_44sdp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/layoutHeader"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
 
         <ProgressBar
             android:layout_width="@dimen/_25sdp"

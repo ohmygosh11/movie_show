@@ -17,23 +17,23 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/_24sdp"
             android:paddingEnd="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_message"
+                android:fontFamily="@font/ubuntu_regular"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="@dimen/_2sdp"
                 android:padding="@dimen/_12sdp"
                 android:paddingStart="@dimen/_16sdp"
                 android:paddingEnd="@dimen/_12ssp"
-                android:lineSpacingExtra="@dimen/_2sdp"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/ubuntu_regular"
-                android:textSize="@dimen/_13ssp"
                 android:textColor="@color/colorTextIcons"
                 android:textIsSelectable="true"
-                android:background="@drawable/background_message" />
+                android:textSize="@dimen/_13ssp" />
 
         </LinearLayout>
 
@@ -41,14 +41,14 @@
             android:id="@+id/layoutLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
-                android:src="@drawable/ic_android"
                 android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_android"
                 app:tint="@color/colorChatTheme" />
 
             <TextView
@@ -57,19 +57,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/_8sdp"
+                android:fontFamily="@font/ubuntu_regular"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="@dimen/_2sdp"
-                android:fontFamily="@font/ubuntu_regular"
-                android:textSize="@dimen/_13ssp"
+                android:textColor="@color/colorTextIcons"
                 android:textIsSelectable="true"
-                android:textColor="@color/colorTextIcons" />
+                android:textSize="@dimen/_13ssp" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 
 
 </layout>

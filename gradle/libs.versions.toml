@@ -18,6 +18,8 @@ roundedimageview = "2.3.0"
 rxandroid = "3.0.0"
 sdpAndroid = "1.0.6"
 sspAndroid = "1.0.6"
+googleServices = "4.4.1"
+firebaseStorage = "21.0.0"
 
 [libraries]
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
@@ -43,6 +45,8 @@ roundedimageview = { module = "com.makeramen:roundedimageview", version.ref = "r
 rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
 sdp-android = { module = "com.intuit.sdp:sdp-android", version.ref = "sdpAndroid" }
 ssp-android = { module = "com.intuit.ssp:ssp-android", version.ref = "sspAndroid" }
+google-services = { group = "com.google.gms", name = "google-services", version.ref = "googleServices" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

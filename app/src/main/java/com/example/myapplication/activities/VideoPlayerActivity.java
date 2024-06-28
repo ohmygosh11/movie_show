@@ -4,6 +4,7 @@ import android.media.browse.MediaBrowser;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.OptIn;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -23,6 +24,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
     private ExoPlayer exoPlayer;
     private String videoUrl;
 
+    @OptIn(markerClass = UnstableApi.class)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
