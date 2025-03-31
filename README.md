@@ -1,5 +1,5 @@
 **Technologies Used:** 
-  - MVVM Architecture, Retrofit, OkHttp, Firebase, Lifecycle Extensions, Room, RxJava, Picasso, Material Design, ExoPlayer, Data Binding.
+  - MVVM Architecture, Retrofit, OkHttp, Firebase, Lifecycle Extensions, Room, RxJava, Picasso, Material Design, ExoPlayer, Data Binding. 
     
 ****Key Features:****
   - **Movie Details:** Clicking on a movie from the homepage displays detailed information, including synopsis, rating, and genre.
