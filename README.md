@@ -12,11 +12,37 @@
 
 ****App Interface Overview:****<br>
 - **Home Screen:** Displays a list of movies with options to view details, watchlist, and search.
+        <p align="center">
+           <img src="images/IMG_overview.jpg" alt="Home Screen" width="300">
+        </p>
+        <br>
 - **Movie Details Screen:** Provides in-depth information about the selected movie, including synopsis, rating, and genre.
+        <p align="center">
+           <img src="images/IMG_movie_detail.jpg" alt="Home Screen" width="300">
+        </p>
+        <br>
 - **Payment Screen:** Facilitates the payment process for premium content.
+        <p align="center">
+           <img src="images/IMG_payment.jpg" alt="Home Screen" width="300">
+        </p>
+        <br>
 - **Episode List Screen**: Displays a list of episodes for a selected movie.
+          <p align="center">
+           <img src="images/IMG_episode.jpg" alt="Home Screen" width="300">
+        </p>
+        <br>
 - **Watchlist Screen:** Allows users to manage their watchlist, including adding and removing movies.
+          <p align="center">
+           <img src="images/IMG_watchlist.jpg" alt="Home Screen" width="300">
+        </p>
+        <br>
 - **Search Screen:** Enables users to search for movies using text input or voice recognition.
+          <p align="center">
+           <img src="images/IMG_search.jpg" alt="Home Screen" width="300">
+        </p>
+        <br>
 - **AI Chatbot Screen:** Provides an interface for users to interact with the AI chatbot, ask questions, and receive voice-based responses.
-
+        <p align="center">
+           <img src="images/IMG_chatbot.jpg" alt="Home Screen" width="300">
+        </p>
   
