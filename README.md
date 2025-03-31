@@ -41,7 +41,7 @@
            <img src="images/IMG_search.jpg" alt="Home Screen" width="300">
         </p>
         <br>
-- **AI Chatbot Screen:** Provides an interface for users to interact with the AI chatbot, ask questions, and receive voice-based responses.
+- **AI Chatbot Screen:** Provides an interface for users to interact with the AI chatbot, ask questions, recognize movies based on images and receive voice-based responses.
         <p align="center">
            <img src="images/IMG_chatbot.jpg" alt="Home Screen" width="300">
         </p>
